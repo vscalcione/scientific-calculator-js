@@ -2,10 +2,13 @@
   "name": "javascript-calculator",
   "version": "1.0.0",
   "description": "this is a simple scientific-calculator made in javascript",
-  "main": "main.js",
+  "main": "assets/js/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Scalcione Vincenzo",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
 }

@@ -1,3 +1,7 @@
+// import jquery
+import $ from 'jquery';
+window.jQuery = window.$ = $;
+
 class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement;
@@ -5,16 +9,19 @@ class Calculator {
         this.clear();
     }
 
+    /** This is a method that clear screen of Calculator */
     clear() {
         this.currentOperand = '';
         this.previousOperand = '';
         this.operation = undefined
     }
 
+    /** This is a method that delete oll input of Calculator display **/
     delete() {
         this.currentOperand = this.currentOperand.toString().slice(0, -1)
     }
 
+    /** This is a method that append a value on Calculator display **/
     appendNumber(value) {
         if (value === '.' && this.currentOperand.includes('.')) return;
         this.currentOperand = this.currentOperand.toString() + value.toString()
@@ -22,9 +29,8 @@ class Calculator {
 
     chooseOperation(operation) {
         if (this.currentOperand === '') return;
-        if (this.previousOperand !== '') {
+        if (this.previousOperand !== '')
             this.compute()
-        }
         this.operation = operation;
         this.previousOperand = this.currentOperand;
         this.currentOperand = ''
@@ -85,7 +91,6 @@ class Calculator {
     }
 }
 
-
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
@@ -113,14 +118,14 @@ operationButtons.forEach(button => {
 equalsButton.addEventListener('click', button => {
     calculator.compute();
     calculator.updateDisplay()
-})
+});
 
 allClearButton.addEventListener('click', button => {
-    calculator.clear()
+    calculator.clear();
     calculator.updateDisplay()
 });
 
 deleteButton.addEventListener('click', button => {
-    calculator.delete()
+    calculator.delete();
     calculator.updateDisplay()
 });
