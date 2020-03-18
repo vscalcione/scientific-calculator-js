@@ -1,7 +1,3 @@
-// import jquery
-import $ from 'jquery';
-window.jQuery = window.$ = $;
-
 class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement;
